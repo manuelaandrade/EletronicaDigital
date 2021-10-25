@@ -1,0 +1,42 @@
+	%Universidade Federal de Pernambuco
+	 Nome: Manuela de Lima Pontes Andrade
+	 Lista 1 - AHDL 
+	 
+	 
+	 QUESTÃO 2 a
+	 
+	 OBSERVAÇÕES:
+	 
+	  Contador do 1 ate 50 
+	  Sao necessarios 6FF;
+	  Definições dos FF:
+	  - declarar como variável e informar seu tipo. Nesse caso, DFF.
+	  - nome[].clk : se refere ao clock dos flipflops
+	  - nome[].q : se refere ao estado atual da saída
+	  - nome[].d : se refere a entrada do FF do tipo D %
+	
+	SUBDESIGN question2
+	(
+	
+		clock	  :INPUT; -- define o clock como entrada
+		key     :INPUT; --chave para mudar o modo de contagem
+		Q[5..0] :OUTPUT; --saída de 6bits
+		
+	)
+	VARIABLE
+	   COUNTER[5..0] :DFF;--cria um registrador de 6 bits utilizando FF do tipo D
+	BEGIN
+	   COUNTER[].clk = clock ;-- conecta todos os clocks em paralelo
+		IF key==0 THEN -- se a chave estiver em nível baixo, contador cresce
+		  IF COUNTER[].q < 50 THEN --se o numero formado na saída for menor que 50 fará com que:
+		    COUNTER[].d = COUNTER[].q+1;-- a entrada do contador assuma o valor incrementado da saída do estado anterior
+		  ELSE COUNTER[].d=0;--caso não se aplique, força os estados não utilizados para 0
+		  END IF;
+		ELSIF key==1 THEN -- se a chave estiver em nível alto, contador decresce
+		  IF COUNTER[].q > 0 THEN --se o numero formado na saída for maior que 0 fará com que:
+		    COUNTER[].d = COUNTER[].q-1;-- a entrada do contador assuma o valor decrementado da saída do estado anterior
+		  ELSE COUNTER[].d=0;--caso não se aplique, força os estados não utilizados para 0
+		  END IF;
+		END IF;
+		Q[] = COUNTER[].q;-- associa o vetor de saída a saída do contador		
+	END;

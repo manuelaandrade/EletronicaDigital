@@ -1,0 +1,12 @@
+# do Projeto1.do 
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Projeto1
+# 
+# Top level modules:
+# 	Projeto1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Projeto1_vlg_sample_tst
+# -- Compiling module Projeto1_vlg_check_tst
+# ** Error: Projeto1.vt(64): near "7": syntax error, unexpected INTEGER NUMBER, expecting ')'
+# ** Error: c:/altera/13.0/modelsim_ase/win32aloem/vlog failed.
+# Executing ONERROR command at macro ./Projeto1.do line 4

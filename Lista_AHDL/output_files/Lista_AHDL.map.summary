@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Oct 25 01:34:02 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : Lista_AHDL
+Top-level Entity Name : question2
+Family : Cyclone IV E
+Total logic elements : 21
+    Total combinational functions : 21
+    Dedicated logic registers : 6
+Total registers : 6
+Total pins : 8
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

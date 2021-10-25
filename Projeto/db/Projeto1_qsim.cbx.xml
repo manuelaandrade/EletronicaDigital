@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Projeto1_qsim">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Projeto1|Divisor_de_clock2:inst19|lpm_counter9:inst|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_ioj.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Projeto1|divisor_de_clock:inst20|lpm_counter1:inst|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_5tj.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

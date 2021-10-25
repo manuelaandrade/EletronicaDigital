@@ -1,0 +1,65 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "7seg_1",
+					"strict" : false
+				},
+				{
+					"name" : "7seg_2",
+					"strict" : false
+				},
+				{
+					"name" : "7seg_3",
+					"strict" : false
+				},
+				{
+					"name" : "7seg_a",
+					"strict" : false
+				},
+				{
+					"name" : "7seg_b",
+					"strict" : false
+				},
+				{
+					"name" : "7seg_c",
+					"strict" : false
+				},
+				{
+					"name" : "7seg_g",
+					"strict" : false
+				},
+				{
+					"name" : "7seg_e",
+					"strict" : false
+				},
+				{
+					"name" : "7seg_f",
+					"strict" : false
+				},
+				{
+					"name" : "7seg_d",
+					"strict" : false
+				},
+				{
+					"name" : "modo",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "ini_parar_rein",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

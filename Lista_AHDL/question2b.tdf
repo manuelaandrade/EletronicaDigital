@@ -1,0 +1,35 @@
+	%Universidade Federal de Pernambuco
+	 Nome: Manuela de Lima Pontes Andrade
+	 Lista 1 - AHDL 
+	 
+	 
+	 QUESTÃO 2 b
+	 
+	 OBSERVAÇÕES:
+	 
+	  Contador do 10 ate 20 de dois em dois 
+	  Sao necessarios 4FF;
+	  Definições dos FF:
+	  - declarar como variável e informar seu tipo. Nesse caso, DFF.
+	  - nome[].clk : se refere ao clock dos flipflops
+	  - nome[].q : se refere ao estado atual da saída
+	  - nome[].d : se refere a entrada do FF do tipo D %
+	
+	SUBDESIGN question2b
+	(
+	
+		clock	  :INPUT; -- define o clock como entrada
+		Q[4..0] :OUTPUT; --saída de 4bits
+		
+	)
+	VARIABLE
+	   COUNTER[4..0] :DFF;--cria um registrador de 4 bits utilizando FF do tipo D
+	BEGIN
+	   COUNTER[].clk = clock ;-- conecta todos os clocks em paralelo
+		COUNTER[].d=10;
+		IF ((COUNTER[].q>9) AND (COUNTER[].q<20)) THEN --se o numero formado na saída for maior que 9 e menor que 20 fará com que:
+		    COUNTER[].d = COUNTER[].q+2;-- a entrada do contador assuma o valor incrementado de 2 da saída do estado anterior
+		ELSE COUNTER[].d=10;--caso não se aplique, força os estados não utilizados para 10
+		END IF;
+		Q[] = COUNTER[].q;-- associa o vetor de saída a saída do contador		
+	END;

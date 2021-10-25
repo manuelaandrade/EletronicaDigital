@@ -1,0 +1,40 @@
+	%Universidade Federal de Pernambuco
+	 Nome: Manuela de Lima Pontes Andrade
+	 Lista 1 - AHDL 
+	 
+	 
+	 QUESTÃO 2 
+	 
+	 OBSERVAÇÕES:
+	 
+	  O circuito lógico consiste em um bloco multiplexador de 4 entradas e 1 saída.
+	  São utilizados dois bits para seleção A e B.
+	  
+	  A saída assumirá os seguintes níveis:
+	  
+	  Data :A B | Q
+	  0    :0 0 | I0
+	  1    :0 1 | I1
+	  2    :1 0 | I2
+	  3    :1 1 | I3
+	  					
+	  A entrada 'Data' contém os bits A e B para seleção	%
+	
+	SUBDESIGN question2
+	(
+	
+		Data[1..0]	  :INPUT;
+		I0, I1, I2, I3   :INPUT;
+		Q                :OUTPUT;
+		
+	)
+	
+	BEGIN
+		 CASE Data[] IS
+		      WHEN 0 => Q=I0;
+				WHEN 1 => Q=I1;
+				WHEN 2 => Q=I2;
+				WHEN 3 => Q=I3;
+		 END CASE;
+				
+	END;

@@ -1,0 +1,30 @@
+	%Universidade Federal de Pernambuco
+	 Nome: Manuela de Lima Pontes Andrade
+	 Lista 1 - AHDL 
+	 
+	 
+	 QUESTÃO 1 
+	 
+	 OBSERVAÇÕES:
+	 
+	  O circuito lógico consiste em uma porta AND de 16 entradas. A saída só assumirá nível lógico alto quando:
+	  
+	  A15 A14 A13 A12 A11 A10 A9 A8 A7 A6 A5 A4 A3 A2 A1 A0
+	  0   0   0   0   0   0   1  1  0  1  1  1  0  0  0  0 
+	  
+	  Convertendo para hexadecimal com A15 sendo o bit mais significativo
+	  
+	  0b0000 0011 0111 0000= 0h0370
+					  %
+	
+	SUBDESIGN question1
+	(
+	
+		ADDRESS[15..0]	  :INPUT;
+		CHIP_ENABLE      :OUTPUT;
+		
+	)
+	
+	BEGIN
+		CHIP_ENABLE = (ADDRESS[15..00]==H"0370");
+	END;
