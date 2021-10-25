@@ -1,0 +1,197 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:272), pid=1344, tid=0x0000000000000100
+#
+# JRE version: OpenJDK Runtime Environment (8.0_265-b01) (build 1.8.0_265-b01)
+# Java VM: OpenJDK 64-Bit Server VM (25.265-b01 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001f13b56b000):  JavaThread "C1 CompilerThread3" daemon [_thread_in_native, id=256, stack(0x0000006e69900000,0x0000006e69a00000)]
+
+Stack: [0x0000006e69900000,0x0000006e69a00000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C1:    479  244       3       java.net.URLStreamHandler::parseURL (1193 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000001f13b5e9000 JavaThread "Service Thread" daemon [_thread_blocked, id=2912, stack(0x0000006e69a00000,0x0000006e69b00000)]
+=>0x000001f13b56b000 JavaThread "C1 CompilerThread3" daemon [_thread_in_native, id=256, stack(0x0000006e69900000,0x0000006e69a00000)]
+  0x000001f13b563800 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=4476, stack(0x0000006e69800000,0x0000006e69900000)]
+  0x000001f13b55d800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=1584, stack(0x0000006e69700000,0x0000006e69800000)]
+  0x000001f13b55a800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=9236, stack(0x0000006e69600000,0x0000006e69700000)]
+  0x000001f13b555000 JavaThread "Attach Listener" daemon [_thread_blocked, id=6948, stack(0x0000006e69500000,0x0000006e69600000)]
+  0x000001f13b548000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5496, stack(0x0000006e69400000,0x0000006e69500000)]
+  0x000001f13b52b000 JavaThread "Finalizer" daemon [_thread_blocked, id=5704, stack(0x0000006e69300000,0x0000006e69400000)]
+  0x000001f13b522800 JavaThread "Reference Handler" daemon [_thread_blocked, id=5424, stack(0x0000006e69200000,0x0000006e69300000)]
+  0x000001f12999e000 JavaThread "main" [_thread_in_native, id=2988, stack(0x0000006e69000000,0x0000006e69100000)]
+
+Other Threads:
+  0x000001f13b4f7800 VMThread [stack: 0x0000006e69100000,0x0000006e69200000] [id=7640]
+  0x000001f13b5ee000 WatcherThread [stack: 0x0000006e69b00000,0x0000006e69c00000] [id=5636]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000000a2400000, size: 1500 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ def new generation   total 28224K, used 7592K [0x00000000a2400000, 0x00000000a42a0000, 0x00000000c1800000)
+  eden space 25088K,  30% used [0x00000000a2400000, 0x00000000a2b6a3f8, 0x00000000a3c80000)
+  from space 3136K,   0% used [0x00000000a3c80000, 0x00000000a3c80000, 0x00000000a3f90000)
+  to   space 3136K,   0% used [0x00000000a3f90000, 0x00000000a3f90000, 0x00000000a42a0000)
+ tenured generation   total 62848K, used 0K [0x00000000c1800000, 0x00000000c5560000, 0x0000000100000000)
+   the space 62848K,   0% used [0x00000000c1800000, 0x00000000c1800000, 0x00000000c1800200, 0x00000000c5560000)
+ Metaspace       used 4080K, capacity 4828K, committed 5120K, reserved 1056768K
+  class space    used 422K, capacity 464K, committed 512K, reserved 1048576K
+
+Card table byte_map: [0x000001f13a710000,0x000001f13aa00000] byte_map_base: 0x000001f13a1fe000
+
+Polling page: 0x000001f129ae0000
+
+CodeCache: size=245760Kb used=1711Kb max_used=1722Kb free=244048Kb
+ bounds [0x000001f12b350000, 0x000001f12b5c0000, 0x000001f13a350000]
+ total_blobs=493 nmethods=244 adapters=163
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.460 Thread 0x000001f13b56b000 nmethod 236 0x000001f12b4f89d0 code [0x000001f12b4f8ca0, 0x000001f12b4f9f70]
+Event: 0.460 Thread 0x000001f13b56b000  235       3       sun.misc.FileURLMapper::getPath (141 bytes)
+Event: 0.461 Thread 0x000001f13b56b000 nmethod 235 0x000001f12b4fa790 code [0x000001f12b4faa40, 0x000001f12b4fbea0]
+Event: 0.461 Thread 0x000001f13b56b000  242       3       java.util.AbstractList::<init> (10 bytes)
+Event: 0.461 Thread 0x000001f13b56b000 nmethod 242 0x000001f12b4f4f90 code [0x000001f12b4f5100, 0x000001f12b4f5318]
+Event: 0.462 Thread 0x000001f13b56b000  243       3       sun.net.www.protocol.file.Handler::parseURL (18 bytes)
+Event: 0.463 Thread 0x000001f13b56b000 nmethod 243 0x000001f12b4f2e50 code [0x000001f12b4f2fc0, 0x000001f12b4f3240]
+Event: 0.463 Thread 0x000001f13b56b000  244       3       java.net.URLStreamHandler::parseURL (1193 bytes)
+Event: 0.470 Thread 0x000001f13b563800 nmethod 240 0x000001f12b4f2690 code [0x000001f12b4f27e0, 0x000001f12b4f2b98]
+Event: 0.473 Thread 0x000001f13b55a800  246       4       java.lang.String::lastIndexOf (52 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (1 events):
+Event: 0.351 Thread 0x000001f12999e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000001f12b452ab8 method=java.lang.String.hashCode()I @ 14
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0.440 Thread 0x000001f12999e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000a2a57758) thrown at [J:\jenkins\tmp\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.440 Thread 0x000001f12999e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000a2a57968) thrown at [J:\jenkins\tmp\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.440 Thread 0x000001f12999e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000a2a58f60) thrown at [J:\jenkins\tmp\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.440 Thread 0x000001f12999e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000a2a59170) thrown at [J:\jenkins\tmp\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.440 Thread 0x000001f12999e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000a2a5ae70) thrown at [J:\jenkins\tmp\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.440 Thread 0x000001f12999e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000a2a5b080) thrown at [J:\jenkins\tmp\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.442 Thread 0x000001f12999e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000a2a67760) thrown at [J:\jenkins\tmp\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.442 Thread 0x000001f12999e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000a2a67970) thrown at [J:\jenkins\tmp\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.472 Thread 0x000001f12999e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000a2b14dd8) thrown at [J:\jenkins\tmp\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.472 Thread 0x000001f12999e000 Exception <a 'java/security/PrivilegedActionException'> (0x00000000a2b14fe8) thrown at [J:\jenkins\tmp\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+
+Events (10 events):
+Event: 0.431 loading class sun/net/www/protocol/jar/JarURLConnection$JarURLInputStream
+Event: 0.432 loading class sun/net/www/protocol/jar/JarURLConnection$JarURLInputStream done
+Event: 0.432 loading class java/util/PropertyResourceBundle
+Event: 0.432 loading class java/util/PropertyResourceBundle done
+Event: 0.433 loading class java/util/ResourceBundle$BundleReference
+Event: 0.434 loading class java/util/ResourceBundle$BundleReference done
+Event: 0.434 loading class com/altera/sopcmodel/sbtools/sbcatalog/SbCatalog_pt
+Event: 0.434 loading class com/altera/sopcmodel/sbtools/sbcatalog/SbCatalog_pt done
+Event: 0.443 Thread 0x000001f12999e000 DEOPT PACKING pc=0x000001f12b46f736 sp=0x0000006e690fda50
+Event: 0.443 Thread 0x000001f12999e000 DEOPT UNPACKING pc=0x000001f12b3971d8 sp=0x0000006e690fd728 mode 0
+
+
+Dynamic libraries:
+0x00007ff61e680000 - 0x00007ff61e6ba000 	C:\intelfpga_lite\20.1\quartus\bin64\jre64\bin\java.exe
+0x00007ffba5b10000 - 0x00007ffba5d05000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffb7bb60000 - 0x00007ffb7bb75000 	C:\Program Files\Avast Software\Avast\aswhook.dll
+0x00007ffba5140000 - 0x00007ffba51fd000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffba37c0000 - 0x00007ffba3a88000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffba4a60000 - 0x00007ffba4b0c000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffba4820000 - 0x00007ffba48be000 	C:\Windows\System32\msvcrt.dll
+0x00007ffba58f0000 - 0x00007ffba598b000 	C:\Windows\System32\sechost.dll
+0x00007ffba4b20000 - 0x00007ffba4c4b000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffba4d90000 - 0x00007ffba4f30000 	C:\Windows\System32\USER32.dll
+0x00007ffba3410000 - 0x00007ffba3432000 	C:\Windows\System32\win32u.dll
+0x00007ffba3c50000 - 0x00007ffba3c7a000 	C:\Windows\System32\GDI32.dll
+0x00007ffba3300000 - 0x00007ffba340b000 	C:\Windows\System32\gdi32full.dll
+0x00007ffba3440000 - 0x00007ffba34dd000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffba34e0000 - 0x00007ffba35e0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffb897c0000 - 0x00007ffb89a5a000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.844_none_ca00b6081b84eb1d\COMCTL32.dll
+0x00007ffba3b70000 - 0x00007ffba3ba0000 	C:\Windows\System32\IMM32.DLL
+0x00007ffb2d600000 - 0x00007ffb2d6ef000 	C:\intelfpga_lite\20.1\quartus\bin64\jre64\bin\msvcr120.dll
+0x00007ffb2d550000 - 0x00007ffb2d5f6000 	C:\intelfpga_lite\20.1\quartus\bin64\jre64\bin\msvcp120.dll
+0x0000000075f50000 - 0x00000000767b6000 	C:\intelfpga_lite\20.1\quartus\bin64\jre64\bin\server\jvm.dll
+0x00007ffba3c80000 - 0x00007ffba3c88000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffb9a650000 - 0x00007ffb9a677000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffb9d180000 - 0x00007ffb9d18a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffb91ab0000 - 0x00007ffb91ab9000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffba4d20000 - 0x00007ffba4d8b000 	C:\Windows\System32\WS2_32.dll
+0x00007ffb9a200000 - 0x00007ffb9a20f000 	C:\intelfpga_lite\20.1\quartus\bin64\jre64\bin\verify.dll
+0x00007ffb8a360000 - 0x00007ffb8a388000 	C:\intelfpga_lite\20.1\quartus\bin64\jre64\bin\java.dll
+0x00007ffb892f0000 - 0x00007ffb89306000 	C:\intelfpga_lite\20.1\quartus\bin64\jre64\bin\zip.dll
+0x00007ffba3c90000 - 0x00007ffba43d2000 	C:\Windows\System32\SHELL32.dll
+0x00007ffba13a0000 - 0x00007ffba1b30000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ffba43e0000 - 0x00007ffba4735000 	C:\Windows\System32\combase.dll
+0x00007ffba2bf0000 - 0x00007ffba2c1c000 	C:\Windows\SYSTEM32\Wldp.dll
+0x00007ffba3ba0000 - 0x00007ffba3c4e000 	C:\Windows\System32\SHCORE.dll
+0x00007ffba4a00000 - 0x00007ffba4a55000 	C:\Windows\System32\shlwapi.dll
+0x00007ffba3190000 - 0x00007ffba31af000 	C:\Windows\SYSTEM32\profapi.dll
+
+VM Arguments:
+jvm_args: -Xmx1500M -XX:+UseSerialGC 
+java_command: com.altera.sopcmodel.sbtools.sbcatalog.SbCatalog --xml --project-directory= --search-path=C:/Users/Manu/Documents/UFPE/Eletrônica Digital/Projeto1/,C:\Users\Manu\Documents\UFPE\Eletrônica Digital\Projeto1
+java_class_path (initial): C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\Nlview.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\TableLayout.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\appframework-1.03.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\asm-3.1.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\asm-commons-3.1.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\basicmodel.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\beansbinding-1.2.1.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\binding-2.0.6.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.componenteditor2.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.app_lib.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.bsp.editor.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.bsp.elements.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.bsp.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.bsp.plugin.core.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.bsp.plugin.hal.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.bsp.plugin.lwhal.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.bsp.schema.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.bsp.scripting.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.commandline.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.cpexample.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.flash.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.launch.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/model/lib\com.altera.embeddedsw.swinfo.jar;C:/intelfpga_lite/20.1/quartus/sopc_builder/m
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:/intelfpga_lite/20.1/quartus/bin64;c:\intelfpga_lite\20.1\quartus\bin64\;c:\intelfpga_lite\20.1\quartus\bin64\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\Manu\AppData\Local\Microsoft\WindowsApps;;C:\Users\Manu\AppData\Local\Programs\Microsoft VS Code\bin
+USERNAME=Manu
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 19041 (10.0.19041.928)
+
+CPU:total 8 (initial active 8) (8 cores per cpu, 1 threads per core) family 23 model 24 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv, bmi1
+
+Memory: 4k page, physical 5985536k(1827372k free), swap 5985536k(5764k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.265-b01) for windows-amd64 JRE (1.8.0_265-b01), built on Jul 28 2020 15:11:27 by "jenkins" with MS VC++ 12.0 (VS2013)
+
+time: Sat Oct 16 01:08:10 2021
+timezone: Hora oficial do Brasil
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

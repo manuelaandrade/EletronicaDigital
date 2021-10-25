@@ -13,8 +13,9 @@
 	  - declarar como variável e informar seu tipo. Nesse caso, DFF.
 	  - nome[].clk : se refere ao clock dos flipflops
 	  - nome[].q : se refere ao estado atual da saída
-	  - nome[].d : se refere a entrada do FF do tipo D %
-	
+	  - nome[].d : se refere a entrada do FF do tipo D 
+	  
+	  %
 	SUBDESIGN question2
 	(
 	
@@ -24,9 +25,19 @@
 		
 	)
 	VARIABLE
+		AUXCOUNTER[25..0] :DFF;--cria um registrador de 26 bits utilizando FF do tipo D
 	   COUNTER[5..0] :DFF;--cria um registrador de 6 bits utilizando FF do tipo D
+		newclock      :NODE; -- novo clock a ser considerado na contagem
+		
 	BEGIN
-	   COUNTER[].clk = clock ;-- conecta todos os clocks em paralelo
+	   AUXCOUNTER[].clk = clock ;-- conecta todos os clocks em paralelo
+		IF AUXCOUNTER[].q < 50000000 THEN --se o numero formado na saída for menor que 50 fará com que:
+		    AUXCOUNTER[].d = AUXCOUNTER[].q+1;-- a entrada do contador assuma o valor incrementado da saída do estado anterior
+		ELSE AUXCOUNTER[].d=0;--caso não se aplique, força os estados não utilizados para 0
+		END IF;
+		newclock = AUXCOUNTER[25].q;
+			 
+	   COUNTER[].clk = newclock ;-- conecta todos os clocks em paralelo
 		IF key==0 THEN -- se a chave estiver em nível baixo, contador cresce
 		  IF COUNTER[].q < 50 THEN --se o numero formado na saída for menor que 50 fará com que:
 		    COUNTER[].d = COUNTER[].q+1;-- a entrada do contador assuma o valor incrementado da saída do estado anterior
